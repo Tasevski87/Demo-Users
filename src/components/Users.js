@@ -8,8 +8,14 @@ class Users extends Component {
     super();
     this.state = {
       showUsers: true,
-      more:"Test",
+      more: "Test",
     };
+  }
+  componentDidUpdate() {
+    
+    if (this.props.users.length === 0) {
+      throw new Error("No users provided");
+    }
   }
   toggleUsersHandler() {
     this.setState((curState) => {
